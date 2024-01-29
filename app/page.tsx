@@ -6,15 +6,7 @@ import { useRef } from "react";
 import { FlagsmithProvider } from 'flagsmith/react';
 import { createFlagsmithInstance } from 'flagsmith/isomorphic';
 
-import { ComponentType } from 'react';
-import { AppProps } from 'next/app';
-import IFlagsmith from 'flagsmith'; // Adjust this import based on how you've structured your project
-
-interface HomeProps extends AppProps {
-  flagsmithState?: typeof IFlagsmith; // Define the type for flagsmithState
-}
-
-function Home({ Component, pageProps, flagsmithState } : HomeProps) {
+function Home() {
   const flagsmithRef = useRef(createFlagsmithInstance());
   return (
     <FlagsmithProvider flagsmith={flagsmithRef.current}>
